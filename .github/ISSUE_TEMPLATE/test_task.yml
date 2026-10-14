@@ -1,0 +1,67 @@
+name: "🧪 Test Task / Công Việc Kiểm Thử"
+description: "Mẫu tạo task kiểm thử và theo dõi công việc cho dự án Postee AI"
+title: "[Test]: "
+labels: ["test", "task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 📋 Biểu mẫu tạo Task kiểm thử (Test Task)
+        Vui lòng điền đầy đủ các thông tin bên dưới để theo dõi và thực thi task hiệu quả.
+
+  - type: input
+    id: task_title
+    attributes:
+      label: Tên công việc / Ca kiểm thử
+      description: Tóm tắt ngắn gọn nội dung cần test hoặc thực hiện.
+      placeholder: "Ví dụ: Kiểm thử luồng Streaming SSE của AI Chat API"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Mức độ ưu tiên
+      description: Chọn mức độ ưu tiên cho task này.
+      options:
+        - "🟢 Thấp (Low)"
+        - "🟡 Trung bình (Medium)"
+        - "🔴 Cao (High)"
+        - "🔥 Khẩn cấp (Critical)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả chi tiết & Kịch bản kiểm thử
+      description: Ghi rõ mục tiêu, các bước kiểm thử (Test Steps) và kết quả mong muốn (Expected Result).
+      placeholder: |
+        1. Mục tiêu kiểm thử:
+        2. Các bước thực hiện:
+           - Bước 1:
+           - Bước 2:
+        3. Kết quả kỳ vọng:
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Môi trường & Cấu hình
+      description: Thông tin môi trường test (OS, model LLM, phiên bản Python/Java, v.v.).
+      placeholder: "macOS, Python 3.11, OpenAI gpt-4o-mini, PostgreSQL 16..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist kiểm tra
+      options:
+        - label: Đã kiểm tra không có issue nào bị trùng lặp
+          required: true
+        - label: Đã cung cấp đầy đủ thông tin mô tả và kỳ vọng
+          required: true
+        - label: Đã sẵn sàng để gán người thực hiện (assignee)
+          required: false
